@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 yfinance = "*"
 selenium = "*"
+loguru = "*"
 
 [requires]
 python_version = "3.6"
