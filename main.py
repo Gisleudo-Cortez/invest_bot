@@ -1,4 +1,4 @@
-from src.scrap import scraping
+import scraping 
 
 
 scraping.extract_files()
