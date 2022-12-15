@@ -17,8 +17,8 @@ options.add_argument('--disable-gpu')
 options.headless = True
 
 options.add_experimental_option("prefs", {
-            "download.default_directory": "/home/falcon/Documents/workspace/python/invest_bot/data",
-            "download.prompt_for_download": False,
+            "download.default_directory": "/home/nero/Documents/Estudos/Pyhton/invest_bot/invest_bot/Data",
+            "download.prompt_for_download": True,
             "download.directory_upgrade": True,
             "safebrowsing_for_trusted_sources_enabled": False,
             "safebrowsing.enabled": False
@@ -33,7 +33,8 @@ def extract_files():
         try:
             browser.get(indexes_urls[index])
             time.sleep(3)
-            browser.find_element_by_link_text('Download').click()
+            browser.find_element("link text", "Download").click()
+            #browser.find_element_by_link_text('Download').click() # Selenium 4.3.0 * Deprecated find_element_by_* and find_elements_by_* are now removed (#10712)
             time.sleep(3)
         except WebDriverException as e:
             logger.error(f'Erro ao extratir {index} - Erro: {e}')
