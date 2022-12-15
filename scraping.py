@@ -3,9 +3,13 @@ from selenium import webdriver
 from loguru import logger
 from selenium.common.exceptions import WebDriverException 
 import sys
+import os
 
 logger.add(sys.stderr, format="{time} - {level} - {message}", filter="my_module", level="INFO")
 
+# creates destination folder for csv files on current directory
+current_dir = os.getcwd()
+download_path = current_dir + "/Data" # set custom path to download here
 
 indexes_urls = {
     'ifiz':'https://sistemaswebb3-listados.b3.com.br/indexPage/day/IFIX?language=pt-br',
@@ -17,8 +21,8 @@ options.add_argument('--disable-gpu')
 options.headless = True
 
 options.add_experimental_option("prefs", {
-            "download.default_directory": "/home/nero/Documents/Estudos/Pyhton/invest_bot/invest_bot/Data",
-            "download.prompt_for_download": True,
+            "download.default_directory": download_path,
+            "download.prompt_for_download": False,
             "download.directory_upgrade": True,
             "safebrowsing_for_trusted_sources_enabled": False,
             "safebrowsing.enabled": False
